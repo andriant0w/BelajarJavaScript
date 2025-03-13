@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan JavaScript (Variabel & Operator)</title>
+</head>
+<body>
+    <script>
+        // Menghitung luas persegi panjang
+        let panjang = 10;
+        let lebar = 5;
+        let luasPersegiPanjang = panjang * lebar;
+    
+        // Menghitung luas bujur sangkar
+        let sisi = 5;
+        let luasBujurSangkar = sisi * sisi;
+    
+        // Menghitung luas segitiga
+        let alas = 10;
+        let tinggi = 5;
+        const setengah = 0.5; // Konstanta
+        let luasSegitiga = setengah * alas * tinggi;
+    
+        // Menampilkan hasil sekaligus
+        document.write(`
+            <h3>Perhitungan Luas Bangun Datar</h3>
+
+            <hr>
+            
+            <p>Pada sebuah bangun datar <b>persegi panjang</b> memiliki panjang = ${panjang} cm dan lebar = ${lebar} cm.</p>
+            <p>Maka luas persegi panjang tersebut = <b>${luasPersegiPanjang} cm²</b></p>
+            
+            <hr>
+            
+            <p>Pada sebuah bangun datar <b>bujur sangkar</b> memiliki sisi = ${sisi} cm.</p>
+            <p>Maka luas bujur sangkar tersebut = <b>${luasBujurSangkar} cm²</b></p>
+            
+            <hr>
+            
+            <p>Pada sebuah bangun datar <b>segitiga</b> memiliki alas = ${alas} cm dan tinggi = ${tinggi} cm.</p>
+            <p>Maka luas segitiga tersebut = <b>${luasSegitiga} cm²</b></p>
+        `);
+    </script>
+     
+</body>
+</html>
