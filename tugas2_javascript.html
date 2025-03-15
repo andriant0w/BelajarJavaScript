@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 - Javascript</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: auto;
+            border-spacing: 0;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        th {
+            background-color: #e9cdcd;
+            text-align: center;
+        }
+        td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8), td:nth-child(9) {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tugas 2 JavaScript - Andrianto Wicaksono</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Usia</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>Bpjs</th>
+                <th>Tunjangan Keluarga</th>
+                <th>Total Gaji</th>
+            </tr>
+        </thead>
+        <tbody id="pegawaiData"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="8"><strong>Total Gaji</strong></td>
+                <td id="totalPengeluaran"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        //Data Pegawai
+        let nama = "Dodi Prayogi"
+        let usia = 25
+        let jabatan = "Manager"
+        let status = "Menikah"
+
+        //menentukan gaji pokok
+        let gajiPokok;
+        if (jabatan == "Manager") {
+            gajiPokok = 15000000
+        } else if (jabatan == "Asisisen Manager") {
+            gajiPokok = 10000000
+        } else if (jabatan == "Staff") {
+            gajiPokok = 5000000
+        } else {
+            gajiPokok = 0; //default jika jabatan tidak ditemukan
+        }
+
+        //menentukan tunjangan jabatan
+        let tunjanganJabatan = 0.15 * gajiPokok;
+        let bpjs = 0.10 * gajiPokok;
+        let tunjanganKeluarga = status == "Menikah" ? 0.20 * gajiPokok : 0;
+        let totalGaji = gajiPokok + tunjanganJabatan - bpjs + tunjanganKeluarga;
+
+        //Menampilkan data pegawai dalam tabel
+        document.getElementById("pegawaiData").innerHTML = `
+            <tr>
+                <td>${nama}</td>
+                <td>${usia}</td>
+                <td>${jabatan}</td>
+                <td>${status}</td>
+                <td>Rp${gajiPokok.toLocaleString("id-ID")}</td>
+                <td>Rp${tunjanganJabatan.toLocaleString("id-ID")}</td>
+                <td>Rp${bpjs.toLocaleString("id-ID")}</td>
+                <td>Rp${tunjanganKeluarga.toLocaleString("id-ID")}</td>
+                <td>Rp${totalGaji.toLocaleString("id-ID")}</td>
+            </tr>
+        `;
+
+        //Menampilkan total pengeluaran di tfoot
+        document.getElementById("totalPengeluaran").innerHTML = `<strong>Rp${totalGaji.toLocaleString("id-ID")}</strong>`;
+    </script>
+</body>
+</html>
